@@ -120,6 +120,7 @@ if dein#load_state('~/.local/dein')
  call dein#begin('~/.local/dein')
 
  call dein#add('~/.local/dein')
+ call dein#add('~/.local/dein/repos/github.com/Shougo/dein.vim')
  call dein#add('Shougo/deoplete.nvim')
  if !has('nvim')
    call dein#add('roxma/nvim-yarp')

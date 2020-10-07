@@ -125,6 +125,11 @@ fi
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+# 社内プロキシ設定
+export http_proxy=http://199.19.250.205:80
+export https_proxy=https://199.19.250.205:80
+git config --global http.proxy ${http_proxy}
+git config --global https.proxy ${https_proxy}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -141,3 +146,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# WSL用にLS_COLORSを直す
+# https://qiita.com/shora_kujira16/items/01fa8f759db2db275a6d
+LS_COLORS="${LS_COLORS}:ow=01;34"; export LS_COLORS
