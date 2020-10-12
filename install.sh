@@ -10,3 +10,10 @@ for dotfile in .??*; do
             ln -snfv "$(pwd)/$dotfile" "$HOME/$dotfile"
         done
         echo "Success" ]]
+
+# Deinのインストール
+curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/.local/installer.sh
+
+sh ~/.local/installer.sh
+
+rm ~/.local/installer.sh
