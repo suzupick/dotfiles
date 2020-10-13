@@ -126,12 +126,17 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 # 社内プロキシ設定
-# export http_proxy=http://199.19.250.205:80
-# export https_proxy=https://199.19.250.205:80
-# export no_proxy=10.5.4.15
+if [ $NAME = "" ]; then
+    export http_proxy=http://199.19.250.205:80
+    export https_proxy=https://199.19.250.205:80
+    export no_proxy=10.5.4.15
 
-# git config --global http.proxy ${http_proxy}
-# git config --global https.proxy ${https_proxy}
+    git config --global http.proxy ${http_proxy}
+    git config --global https.proxy ${https_proxy}
+else
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
