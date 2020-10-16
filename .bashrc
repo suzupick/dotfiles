@@ -126,7 +126,7 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
 # 社内プロキシ設定
-if [ $NAME = "" ]; then
+if [ $NAME = "SLRC1843" ]; then
     export http_proxy=http://199.19.250.205:80
     export https_proxy=https://199.19.250.205:80
     export no_proxy=10.5.4.15

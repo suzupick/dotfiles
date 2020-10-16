@@ -17,3 +17,9 @@ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >
 sh ~/.local/installer.sh
 
 rm ~/.local/installer.sh
+
+# aptを通すためにbashrcだけでなく/etc/environmentにもproxy設定を書いておく
+if [ $NAME = "SLRC1843" ]; then
+    echo http_proxy="http://199.19.250.205:80" >> /etc/environment
+    echo https_proxy="http://199.19.250.205:80" >> /etc/environment
+fi
