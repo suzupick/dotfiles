@@ -26,7 +26,10 @@ set softtabstop=4 " 連続した空白に対してタブキーやバックスペ
 set autoindent " 改行時に前の行のインデントを継続する
 set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
 set shiftwidth=4 " smartindentで増減する幅
-
+" 空行のタブやスペースを維持する設定(http://yakinikunotare.boo.jp/orebase2/editor/vim/dont_delete_blank_line_indent)
+nnoremap o oX<C-h>
+nnoremap O OX<C-h>
+inoremap <CR> <CR>X<C-h>
 
 
 " ---------------- 文字列検索 ------------
@@ -138,12 +141,19 @@ if dein#load_state('~/.local/dein')
  call dein#add('ujihisa/neco-look') " 英単語の補完
  call dein#add('Yggdroot/indentLine') " インデントの可視化
 
- " 行末尾の全角と半角の空白文字を赤くハイライト
- " :FixWhitespace でハイライトされている空白文字を一気に削除．
- call dein#add('bronson/vim-trailing-whitespace')
+ "  " 行末尾の全角と半角の空白文字を赤くハイライト
+ "  " :FixWhitespace でハイライトされている空白文字を一気に削除．
+ "  call dein#add('bronson/vim-trailing-whitespace')
 
  call dein#add('tomasr/molokai') " カラースキーム molokai
  call dein#add('w0ng/vim-hybrid') " カラースキーム hybrid
+
+ " deinプラグインの更新(https://hodalog.com/how-to-remove-plugin-using-dein/)
+ call map(dein#check_clean(), "delete(v:val, 'rf')")
+ call dein#recache_runtimepath()
+ " deinプラグインの自動更新をオン
+ let g:dein#auto_recache = 1
+ 
  " 新しいプラグインを入れたら vim で :call dein#install() とする．
  " ====================================
 
@@ -193,4 +203,7 @@ let g:lightline = {
 set clipboard&
 set clipboard=unnamed,autoselect
 
+
+
+" ビープ音をなしに（うろ覚え）
 set visualbell t_vb=
