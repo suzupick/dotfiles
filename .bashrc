@@ -156,3 +156,22 @@ unset __conda_setup
 # WSL用にLS_COLORSを直す
 # https://qiita.com/shora_kujira16/items/01fa8f759db2db275a6d
 LS_COLORS="${LS_COLORS}:ow=01;34"; export LS_COLORS
+
+# ROS Melodicの環境設定
+source /opt/ros/melodic/setup.bash
+
+# ROSの環境設定(自宅PC)
+if [ $NAME = "303LN-4210" ]; then
+    source ~/catkin_ws/devel/setup.bash
+fi
+
+# High DPI setting for Xwindow on WSL(多分なくてもよい)
+export GDK_SCALE=1
+
+# 不明だが、これがないと挙動がおかしい
+export LIBGL_ALWAYS_INDIRECT=1
+
+# X(GUI)用のディスプレイ変数
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0
+
+

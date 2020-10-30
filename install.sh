@@ -12,10 +12,9 @@ for dotfile in .??*; do
         echo "Success" ]]
 
 # Deinのインストール
+mkdir ~/.local
 curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/.local/installer.sh
-
-sh ~/.local/installer.sh
-
+sh ~/.local/installer.sh ~/.local/dein
 rm ~/.local/installer.sh
 
 # aptを通すためにbashrcだけでなく/etc/environmentにもproxy設定を書いておく
